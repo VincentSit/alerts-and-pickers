@@ -377,27 +377,39 @@ class ViewController: UIViewController {
             
         case .contactsPicker:
             let alert = UIAlertController(style: self.alertStyle)
-            alert.addContactsPicker { contact in Log(contact) }
+            if #available(iOS 10.0, *) {
+                alert.addContactsPicker { contact in Log(contact) }
+            } else {
+                // Fallback on earlier versions
+            }
             alert.addAction(title: "Cancel", style: .cancel)
             alert.show()
             
         case .locationPicker:
             let alert = UIAlertController(style: self.alertStyle)
-            alert.addLocationPicker { location in Log(location) }
+            if #available(iOS 11.0, *) {
+                alert.addLocationPicker { location in Log(location) }
+            } else {
+                // Fallback on earlier versions
+            }
             alert.addAction(title: "Cancel", style: .cancel)
             alert.show()
             
         case .telegramPicker:
             let alert = UIAlertController(style: .actionSheet)
-            alert.addTelegramPicker { result in
-                switch result {
-                case .photo(let assets):
-                    Log(assets)
-                case .contact(let contact):
-                    Log(contact)
-                case .location(let location):
-                    Log(location)
+            if #available(iOS 11.0, *) {
+                alert.addTelegramPicker { result in
+                    switch result {
+                    case .photo(let assets):
+                        Log(assets)
+                    case .contact(let contact):
+                        Log(contact)
+                    case .location(let location):
+                        Log(location)
+                    }
                 }
+            } else {
+                // Fallback on earlier versions
             }
             alert.addAction(title: "Cancel", style: .cancel)
             alert.show()

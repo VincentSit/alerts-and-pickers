@@ -8,6 +8,7 @@ extension UIAlertController {
     /// - Parameters:
     ///   - selection: action for selection of contact
     
+    @available(iOS 10.0, *)
     func addContactsPicker(selection: @escaping ContactsPickerViewController.Selection) {
         let selection: ContactsPickerViewController.Selection = selection
         var contact: Contact?
@@ -27,6 +28,7 @@ extension UIAlertController {
     }
 }
 
+@available(iOS 10.0, *)
 final class ContactsPickerViewController: UIViewController {
     
     // MARK: UI Metrics
@@ -233,6 +235,7 @@ final class ContactsPickerViewController: UIViewController {
 
 // MARK: - UISearchResultsUpdating
 
+@available(iOS 10.0, *)
 extension ContactsPickerViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -259,6 +262,7 @@ extension ContactsPickerViewController: UISearchResultsUpdating {
 
 // MARK: - UISearchBarDelegate
 
+@available(iOS 10.0, *)
 extension ContactsPickerViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -268,6 +272,7 @@ extension ContactsPickerViewController: UISearchBarDelegate {
 
 // MARK: - TableViewDelegate
 
+@available(iOS 10.0, *)
 extension ContactsPickerViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -280,6 +285,7 @@ extension ContactsPickerViewController: UITableViewDelegate {
 
 // MARK: - TableViewDataSource
 
+@available(iOS 10.0, *)
 extension ContactsPickerViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

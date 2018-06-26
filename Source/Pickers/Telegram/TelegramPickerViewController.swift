@@ -11,6 +11,7 @@ public enum TelegramSelectionType {
     case contact(Contact?)
 }
 
+@available(iOS 11.0, *)
 extension UIAlertController {
     
     /// Add Telegram Picker
@@ -26,6 +27,7 @@ extension UIAlertController {
 
 
 
+@available(iOS 11.0, *)
 final class TelegramPickerViewController: UIViewController {
     
     
@@ -298,6 +300,7 @@ final class TelegramPickerViewController: UIViewController {
 
 // MARK: - TableViewDelegate
 
+@available(iOS 11.0, *)
 extension TelegramPickerViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -312,6 +315,7 @@ extension TelegramPickerViewController: UICollectionViewDelegate {
 
 // MARK: - CollectionViewDataSource
 
+@available(iOS 11.0, *)
 extension TelegramPickerViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -340,6 +344,7 @@ extension TelegramPickerViewController: UICollectionViewDataSource {
 
 // MARK: - PhotoLayoutDelegate
 
+@available(iOS 11.0, *)
 extension TelegramPickerViewController: PhotoLayoutDelegate {
     
     func collectionView(_ collectionView: UICollectionView, sizeForPhotoAtIndexPath indexPath: IndexPath) -> CGSize {
@@ -351,6 +356,7 @@ extension TelegramPickerViewController: PhotoLayoutDelegate {
 
 // MARK: - TableViewDelegate
 
+@available(iOS 11.0, *)
 extension TelegramPickerViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -363,6 +369,7 @@ extension TelegramPickerViewController: UITableViewDelegate {
 
 // MARK: - TableViewDataSource
 
+@available(iOS 11.0, *)
 extension TelegramPickerViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

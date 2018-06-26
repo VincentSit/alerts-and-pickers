@@ -12,10 +12,14 @@ public class Location: NSObject {
 	public let placemark: CLPlacemark
 	
 	public var address: String {
-        if let postalAddress = placemark.postalAddress {
-            let formatter = CNPostalAddressFormatter()
-            formatter.style = .mailingAddress
-            return formatter.string(from: postalAddress)
+        if #available(iOS 11.0, *) {
+            if let postalAddress = placemark.postalAddress {
+                let formatter = CNPostalAddressFormatter()
+                formatter.style = .mailingAddress
+                return formatter.string(from: postalAddress)
+            } else {
+                return "\(coordinate.latitude), \(coordinate.longitude)"
+            }
         } else {
             return "\(coordinate.latitude), \(coordinate.longitude)"
         }
