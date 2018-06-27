@@ -1,6 +1,6 @@
 import UIKit
 
-final class ItemWithPhoto: UICollectionViewCell {
+internal final class ItemWithPhoto: UICollectionViewCell {
     
     lazy var imageView: UIImageView = {
         $0.backgroundColor = .clear

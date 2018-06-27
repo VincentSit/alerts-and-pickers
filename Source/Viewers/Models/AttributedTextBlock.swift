@@ -1,6 +1,6 @@
 import UIKit
 
-public enum AttributedTextBlock {
+internal enum AttributedTextBlock {
     
     case header1(String)
     case header2(String)

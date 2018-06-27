@@ -1,6 +1,6 @@
 import UIKit
 
-class ItemWithImage: UICollectionViewCell {
+internal class ItemWithImage: UICollectionViewCell {
     
     static let identifier = String(describing: CurrencyTableViewCell.self)
     

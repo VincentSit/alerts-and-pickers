@@ -1,6 +1,6 @@
 import UIKit
 
-final class PhoneCodeTableViewCell: UITableViewCell {
+internal final class PhoneCodeTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: PhoneCodeTableViewCell.self)
     

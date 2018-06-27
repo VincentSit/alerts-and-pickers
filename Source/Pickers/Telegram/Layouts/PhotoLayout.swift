@@ -6,7 +6,7 @@ protocol PhotoLayoutDelegate: class {
 }
 
 
-class PhotoLayout: UICollectionViewLayout {
+internal class PhotoLayout: UICollectionViewLayout {
     
     weak var delegate: PhotoLayoutDelegate!
     

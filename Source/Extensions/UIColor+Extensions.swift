@@ -1,11 +1,11 @@
 import Foundation
 import UIKit
 
-extension UIColor {
+internal extension UIColor {
     
     /// SwifterSwift: https://github.com/SwifterSwift/SwifterSwift
     /// Hexadecimal value string (read-only).
-    public var hexString: String {
+    var hexString: String {
         let components: [Int] = {
             let c = cgColor.components!
             let components = c.count == 4 ? c : [c[0], c[0], c[0], c[1]]
@@ -16,7 +16,7 @@ extension UIColor {
     
     /// SwifterSwift: https://github.com/SwifterSwift/SwifterSwift
     /// Short hexadecimal value string (read-only, if applicable).
-    public var shortHexString: String? {
+    var shortHexString: String? {
         let string = hexString.replacingOccurrences(of: "#", with: "")
         let chrs = Array(string)
         guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5] else { return nil }
@@ -41,7 +41,7 @@ extension UIColor {
     ///        UIColor.green.rgbComponents.green -> 255
     ///        UIColor.blue.rgbComponents.blue -> 255
     ///
-    public var rgbComponents: (red: Int, green: Int, blue: Int) {
+    var rgbComponents: (red: Int, green: Int, blue: Int) {
         var components: [CGFloat] {
             let c = cgColor.components!
             if c.count == 4 {
@@ -62,7 +62,7 @@ extension UIColor {
     ///        UIColor.green.rgbComponents.green -> 1.0
     ///        UIColor.blue.rgbComponents.blue -> 1.0
     ///
-    public var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) {
+    var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) {
         var components: [CGFloat] {
             let c = cgColor.components!
             if c.count == 4 {
@@ -78,7 +78,7 @@ extension UIColor {
     
     /// SwifterSwift: https://github.com/SwifterSwift/SwifterSwift
     /// Get components of hue, saturation, and brightness, and alpha (read-only).
-    public var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
+    var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
         var h: CGFloat = 0.0
         var s: CGFloat = 0.0
         var b: CGFloat = 0.0
@@ -89,7 +89,7 @@ extension UIColor {
     }
     
     /// Random color.
-    public static var random: UIColor {
+    static var random: UIColor {
         let r = Int(arc4random_uniform(255))
         let g = Int(arc4random_uniform(255))
         let b = Int(arc4random_uniform(255))
@@ -98,7 +98,7 @@ extension UIColor {
 }
 
 // MARK: - Initializers
-public extension UIColor {
+internal extension UIColor {
     
     convenience init(hex: Int, alpha: CGFloat) {
         let r = CGFloat((hex & 0xFF0000) >> 16)/255
@@ -146,7 +146,7 @@ public extension UIColor {
     ///   - green: green component.
     ///   - blue: blue component.
     ///   - transparency: optional transparency value (default is 1)
-    public convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
+    convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")

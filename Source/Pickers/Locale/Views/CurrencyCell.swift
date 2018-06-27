@@ -1,6 +1,6 @@
 import UIKit
 
-final class CurrencyTableViewCell: UITableViewCell {
+internal final class CurrencyTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: CurrencyTableViewCell.self)
     

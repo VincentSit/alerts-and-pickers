@@ -1,14 +1,14 @@
 import UIKit
 
-open class TextField: UITextField {
+internal class TextField: UITextField {
     
-    public typealias Config = (TextField) -> Swift.Void
+    typealias Config = (TextField) -> Swift.Void
     
-    public func configure(configurate: Config?) {
+    func configure(configurate: Config?) {
         configurate?(self)
     }
     
-    public typealias Action = (UITextField) -> Void
+    typealias Action = (UITextField) -> Void
     
     fileprivate var actionEditingChanged: Action?
     
@@ -29,11 +29,11 @@ open class TextField: UITextField {
     }
     
     
-    public var leftViewPadding: CGFloat?
-    public var leftTextPadding: CGFloat?
+    var leftViewPadding: CGFloat?
+    var leftTextPadding: CGFloat?
     
     
-    public func action(closure: @escaping Action) {
+    func action(closure: @escaping Action) {
         if actionEditingChanged == nil {
             addTarget(self, action: #selector(TextField.textFieldDidChange), for: .editingChanged)
         }

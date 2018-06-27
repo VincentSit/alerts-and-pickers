@@ -1,7 +1,7 @@
 import UIKit
 
 
-final class CountryTableViewCell: UITableViewCell {
+internal final class CountryTableViewCell: UITableViewCell {
     
     // MARK: Properties
     

@@ -1,12 +1,12 @@
 import Foundation
 
-struct LocaleStore {
+internal struct LocaleStore {
     
     /// Result Enum
     ///
     /// - Success: Returns Grouped By Alphabets Locale Info
     /// - Error: Returns error
-    public enum GroupedByAlphabetsFetchResults {
+    enum GroupedByAlphabetsFetchResults {
         case success(response: [String: [LocaleInfo]])
         case error(error: (title: String?, message: String?))
     }
@@ -15,12 +15,12 @@ struct LocaleStore {
     ///
     /// - Success: Returns Array of Locale Info
     /// - Error: Returns error
-    public enum FetchResults {
+    enum FetchResults {
         case success(response: [LocaleInfo])
         case error(error: (title: String?, message: String?))
     }
     
-    public static func getInfo(completionHandler: @escaping (FetchResults) -> ()) {
+    static func getInfo(completionHandler: @escaping (FetchResults) -> ()) {
         let bundle = Bundle(for: LocalePickerViewController.self)
         let path = "Countries.bundle/Data/CountryCodes"
         
@@ -49,7 +49,7 @@ struct LocaleStore {
         return completionHandler(FetchResults.error(error: error))
     }
     
-    public static func fetch(completionHandler: @escaping (GroupedByAlphabetsFetchResults) -> ()) {
+    static func fetch(completionHandler: @escaping (GroupedByAlphabetsFetchResults) -> ()) {
         LocaleStore.getInfo { result in
             switch result {
             case .success(let info):

@@ -1,8 +1,8 @@
 import UIKit
 
-open class Button: UIButton {
+internal class Button: UIButton {
     
-    public typealias Action = (Button) -> Swift.Void
+    typealias Action = (Button) -> Swift.Void
     
     fileprivate var actionOnTouch: Action?
     
@@ -10,15 +10,15 @@ open class Button: UIButton {
         super.init(frame: .zero)
     }
     
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    public required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    public func action(_ closure: @escaping Action) {
+    func action(_ closure: @escaping Action) {
         if actionOnTouch == nil {
             addTarget(self, action: #selector(Button.actionOnTouchUpInside), for: .touchUpInside)
         }

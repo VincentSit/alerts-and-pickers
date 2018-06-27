@@ -1,6 +1,6 @@
 import UIKit
 
-final class LikeButtonCell: UITableViewCell {
+internal final class LikeButtonCell: UITableViewCell {
     
     // MARK: Properties
     
